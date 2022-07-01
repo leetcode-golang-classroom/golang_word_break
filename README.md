@@ -104,8 +104,9 @@ func wordBreak(s string, wordDict []string) bool {
 		for _, word := range wordDict {
 			if start+len(word) <= sLen && s[start:start+len(word)] == word {
 				dp[start] = dp[start+len(word)]
-				break
-			}
+		}
+		if dp[start] {
+			break
 		}
 	}
 	return dp[0]
